@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <style>
+        body{
+            align-content: flex-start;
+        }
+        #a{
+            top: -100px;
+        }
+        #d{
+            max-width: 100%;
+            height: auto;
+            
+        }
+        #f{
+            -ms-zoom: 1.3;
+            -moz-transform: scale(1.3);
+            -moz-transform-origin: 0 0;
+            -o-transform: scale(1.3);
+            -o-transform-origin: 0 0;
+            -webkit-transform: scale(1.3);
+            -webkit-transform-origin: 0 0;
+            position: relative;
+            top: -50px;
+        }
+    </style>
+    
+</head>
+<body>
+     <!-- key https://docs.google.com/spreadsheets/d/1C_tPlxxIRJc1Mx2W0vgTLPm4f9Rvtx4QIThsoGZoJBs/edit?usp=sharing -->
+     <div id="a">
+         <h1 style="text-align: center;">계좌</h1>
+     </div>
+     <div id="d">
+        <iframe id="f" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSVeFh5EtAK0TDPhsUuscd5cFfCqXbuMwcavev1QTiLiPpUiByPcK0ExZtfKjzVUpJzsDLYaPJLAr-4/pubhtml?widget=true&amp;headers=false&gid=0&A1:M17" 
+        
+        style = "width:70%; height:530px; margin-top: 2.5%;  margin-left: 1%; border: none; align-items: center;" aria-readonly="true">
+        </iframe>
+    </div>
+    
+     
+     <!-- <iframe src=<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSVeFh5EtAK0TDPhsUuscd5cFfCqXbuMwcavev1QTiLiPpUiByPcK0ExZtfKjzVUpJzsDLYaPJLAr-4/pubhtml?widget=true&amp;headers=false&gid=0&A1:M17"
+     width="100%" height="550px">
+         
+     </iframe> -->
+ </body>
+ <script>
+     document.getElementById('iframe_id').contentWindow.document.폼아이디.엘리먼트아이디.value
+
+ </script>
+</html>

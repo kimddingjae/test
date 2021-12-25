@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8' />
+<link href='main.css' rel='stylesheet' />
+<script src='main.js'></script>
+<script src='ko.js'></script>
+
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function() {
+    var initialLocaleCode = 'ko';
+    var calendarEl = document.getElementById('calendar');
+
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,listYear'
+      },
+      locale: "ko",
+
+      displayEventTime: false, // don't show the time column in list view
+
+      // THIS KEY WON'T WORK IN PRODUCTION!!!
+      // To make your own Google API key, follow the directions here:
+      // http://fullcalendar.io/docs/google_calendar/
+      googleCalendarApiKey: 'AIzaSyDDCGP5vmjUdMOddAJE0XQiSPFTQohIJxY',
+
+      // US Holidays
+      events: 'jn2h2ks351383i9285goketmm0@group.calendar.google.com',
+
+      eventClick: function(arg) {
+        // opens events in a popup window
+        window.open(arg.event.url, 'google-calendar-event', 'width=700,height=600');
+
+        arg.jsEvent.preventDefault() // don't navigate in main tab
+      },
+
+      loading: function(bool) {
+        document.getElementById('loading').style.display =
+          bool ? 'block' : 'none';
+      }
+
+    });
+
+    calendar.render();
+  });
+  FullCalendar.globalLocales.push(function () {
+  'use strict';
+
+  var ko = {
+    code: 'ko',
+    buttonText: {
+      prev: '이전달',
+      next: '다음달',
+      today: '오늘',
+      month: '월',
+      week: '주',
+      day: '일',
+      list: '일정목록',
+    },
+    weekText: '주',
+    allDayText: '종일',
+    moreLinkText: '개',
+    noEventsText: '일정이 없습니다',
+  };
+
+  return ko;
+
+}());
+</script>
+<style>
+
+  body {
+    margin: 40px 10px;
+    padding: 0;
+    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+    font-size: 14px;
+  }
+
+  #loading {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }
+
+  #calendar {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+</style>
+</head>
+<body>
+
+  <div id='loading'>loading...</div>
+
+  <div id='calendar'></div>
+
+</body>
+</html>
