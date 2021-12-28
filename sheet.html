@@ -10,16 +10,19 @@
         body{
             align-content: flex-start;
         }
-        #f{
-            -ms-zoom: 1.3;
-            -moz-transform: scale(1.3);
+        #b{
+            width: 100%;
+        }
+        #b .f{
+            -ms-zoom: 1.2;
+            -moz-transform: scale(1.2);
             -moz-transform-origin: 0 0;
-            -o-transform: scale(1.3);
+            -o-transform: scale(1.2);
             -o-transform-origin: 0 0;
-            -webkit-transform: scale(1.3);
+            -webkit-transform: scale(1.2);
             -webkit-transform-origin: 0 0;
             position: relative;
-            width: 70%;
+            width: 80%;
             height: 530px;
             margin-top: 2.5%;
             margin-left: 1%;
@@ -29,7 +32,7 @@
 
         
         @media (max-width:1125px){ 
-            #f {
+            #b .f{
                 -ms-zoom: 1.0;
                 -moz-transform: scale(1.0);
                 -moz-transform-origin: 0 0;
@@ -38,11 +41,8 @@
                 -webkit-transform: scale(1.0);
                 -webkit-transform-origin: 0 0;
                 position: relative;
-                width: 100%;
-                height: 300px;
-            }
-            #main .sidebar {
-                min-height: 0;
+                width: auto;
+                height: 100%;
             }
         }
     </style>
@@ -53,11 +53,11 @@
      <div id="a">
          <h1 style="text-align: center;">계좌</h1>
      </div>
-     
-        <iframe id="f" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSVeFh5EtAK0TDPhsUuscd5cFfCqXbuMwcavev1QTiLiPpUiByPcK0ExZtfKjzVUpJzsDLYaPJLAr-4/pubhtml?widget=true&amp;headers=false&gid=0&A1:M17" 
+     <div id="b">
+        <iframe class="f" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSVeFh5EtAK0TDPhsUuscd5cFfCqXbuMwcavev1QTiLiPpUiByPcK0ExZtfKjzVUpJzsDLYaPJLAr-4/pubhtml?widget=true&amp;headers=false&gid=0&A1:M17" 
         aria-readonly="true">
         </iframe>
-    
+    </div>
     
      
      <!-- <iframe src=<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSVeFh5EtAK0TDPhsUuscd5cFfCqXbuMwcavev1QTiLiPpUiByPcK0ExZtfKjzVUpJzsDLYaPJLAr-4/pubhtml?widget=true&amp;headers=false&gid=0&A1:M17"
