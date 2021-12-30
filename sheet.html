@@ -10,6 +10,8 @@
     #a{
         text-align: center;
         width: 100%;
+        overflow: hidden;
+        height: 640px;
     }
     #i{
         zoom: 0.8;
@@ -19,10 +21,19 @@
         -o-transform-origin: 0 0;
         -webkit-transform: scale(0.8);
         -webkit-transform-origin: 0 0;
+        position: relative;
+        top: -14px;
         width: 120%;
         height: 640px;
+        margin-top: -10px;
         margin-bottom: -1%;
         border: none;
+    }
+    #h{
+        display: block;
+    }
+    #j{
+        display: none;
     }
     @media (min-width: 768px) {
         #i{ 
@@ -38,13 +49,19 @@
             height: 430px;
             margin-right: 13%;
         }
+        #h{
+            display: none;
+        }
+        #j{
+            display: block;
+        }
     }
    </style>
 </head>
 <body>
-     
+    <h3 id="h" style="text-align: center;">카카오뱅크 3333-22-0492563</h3>     
+    <h1 id="j" style="text-align: center;">카카오뱅크 3333-22-0492563</h1>     
      <div id="a">
-         <h1 >카카오뱅크 3333-22-0492563</h1>
          <iframe  id="i" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSVeFh5EtAK0TDPhsUuscd5cFfCqXbuMwcavev1QTiLiPpUiByPcK0ExZtfKjzVUpJzsDLYaPJLAr-4/pubhtml?widget=true&amp;headers=false"></iframe>
      </div>
      
