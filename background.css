@@ -29,9 +29,23 @@ body {background: #E0EAFC;  /* fallback for old browsers */
 	position:relative;
 	top:1px;
 }
+#wrapper{
+	display: flex;
+	justify-content: center;
+	margin-top: 10%;
+}
+#wrapper1{
+	display: flex;
+	justify-content: center;
+	margin-top: 3%;
+}
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
 	.myButton{
-		padding:50px 50px;
+		padding: 65px 50px;
 	}
+	#wrapper{
+		margin-top: 50%;
+	}
+
 }
