@@ -31,3 +31,9 @@ body {background: #E0EAFC;  /* fallback for old browsers */
 	position:relative;
 	top:1px;
 }
+
+@media (min-width: 768px) {
+	.myButton{
+		padding:80px 80px;
+	}
+}
