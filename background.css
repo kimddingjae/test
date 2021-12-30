@@ -32,6 +32,6 @@ body {background: #E0EAFC;  /* fallback for old browsers */
 
 @media (min-width: 768px) {
 	.myButton{
-		padding:80px 80px;
+		padding:50px 50px;
 	}
 }
