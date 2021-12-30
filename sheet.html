@@ -6,56 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
    <title>장부</title>
-    <style>
-        body{
-            align-content: flex-start;
-        }
-        #b{
-            width: 100%;
-            
-        }
-        #b .f{
-            -ms-zoom: 1.2;
-            -moz-transform: scale(1.2);
-            -moz-transform-origin: 0 0;
-            -o-transform: scale(1.2);
-            -o-transform-origin: 0 0;
-            -webkit-transform: scale(1.2);
-            -webkit-transform-origin: 0 0;
-            position: relative;
-            width: 80%;
-            height: 530px;
-            margin-top: 2.5%;
-            margin-left: 1%;
-            border: none;
-            align-items: center;
-        }
-
+   <style>
+    #a{
+        text-align: center;
+        width: 55%;
         
-        @media (max-width:992px){ 
-            #b .f{
-                -ms-zoom: 0.5;
-                -moz-transform: scale(0.5);
-                -moz-transform-origin: 0 0;
-                -o-transform: scale(0.5);
-                -o-transform-origin: 0 0;
-                -webkit-transform: scale(0.5);
-                -webkit-transform-origin: 0 0;
-                width: 100%;
-            }
+    }
+    #i{
+        zoom: 1.2;
+        -moz-transform:scale(1.2);
+        -moz-transform-origin: 0 0;
+        -o-transform: scale(1.2);
+        -o-transform-origin: 0 0;
+        -webkit-transform: scale(1.2);
+        -webkit-transform-origin: 0 0;
+        border: none;
+        width: 80%;
+        height: 410px;
+    }
+    @media (max-width: 768px) {
+        #i{
+            width: 100%;
+            margin-bottom: -1%;
         }
-    </style>
-    
+    }
+   </style>
 </head>
 <body>
-     <!-- key https://docs.google.com/spreadsheets/d/1C_tPlxxIRJc1Mx2W0vgTLPm4f9Rvtx4QIThsoGZoJBs/edit?usp=sharing -->
+     
      <div id="a">
-         <h1 style="text-align: center;">계좌</h1>
+         <h1 >계좌</h1>
+         <iframe  id="i" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSVeFh5EtAK0TDPhsUuscd5cFfCqXbuMwcavev1QTiLiPpUiByPcK0ExZtfKjzVUpJzsDLYaPJLAr-4/pubhtml?widget=true&amp;headers=false"></iframe>
      </div>
-     <div id="b">
-        <iframe class="f" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSVeFh5EtAK0TDPhsUuscd5cFfCqXbuMwcavev1QTiLiPpUiByPcK0ExZtfKjzVUpJzsDLYaPJLAr-4/pubhtml?widget=true&amp;headers=false&gid=0&A1:M17" 
-        aria-readonly="true">
-        </iframe>
-    </div>
+     
  </body>
 </html>
