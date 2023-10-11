@@ -3,16 +3,32 @@
 <html>
 
 <head>...</head>
+<style>
+#output {
+  margin-top: 20px;
+  background: #eee;
+  padding: 10px;
+  padding-bottom: 0;
+}
 
+#output div {
+  padding-bottom: 10px;
+  word-wrap: break-word;
+}
+  
+</style>
 <body>
 
 <video id="video" width="640" height="480" autoplay></video>
-
+<div id="output" hidden>
+  <div hidden><b>Data:</b> <span id="outputData"></span></div>
+</div>
 
 
 <script>
 
   const video = document.querySelector('video');
+  var outputData = document.getElementById("outputData");
   
   const barcodeDetector = new BarcodeDetector({
     formats:['qr_code','ean_13','code_128']
@@ -34,12 +50,14 @@
    const ctx = canvas.getContext('2d');
    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
    
-   barcodeDetector.detect(cnavas)
+   barcodeDetector.detect(canvas)
    .then(barcodes => {
      if(barcodes.length === 0) {
        console.log('No barcode detected');
      } else{
        const barcode = barcodes[0];
+       alert(barcode)
+       outputData.innerText = ${barcode.rawValue};
        alert(`Type: ${barcode.format}, Data: ${barcode.rawValue}`);
      }
    })
