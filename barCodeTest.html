@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>...</head>
+
+<body>
+
+<video id="video" width="640" height="480" autoplay></video>
+
+
+
+<script>
+
+  const video = document.querySelector('video');
+  
+  const barcodeDetector = new BarcodeDetector({
+    formats:['qr_code','ean_13','code_128']
+    
+  });
+  
+  navigator.mediaDevices.getUserMedia({video:true})
+  .then( stream =>{
+  video.srcObject = stream;
+  video.play();
+    })
+    .catch(err => alert(err));
+    
+   video.addEventListener('loadeddata', () =>{
+   
+   const canvas = document.createElement('canvas');
+   const width = video.videoWidth;
+   canvas.height = video.videoHeight;
+   const ctx = canvas.getContext('2d');
+   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+   
+   barcodeDetector.detect(cnavas)
+   .then(barcodes => {
+     if(barcodes.length === 0) {
+       console.log('No barcode detected');
+     } else{
+       const barcode = barcodes[0];
+       alert(`Type: ${barcode.format}, Data: ${barcode.rawValue}`);
+     }
+   })
+   .catch(err => alert(err));
+   
+   
+   }); 
+
+</script>
+
+</body>
+
+</html>
