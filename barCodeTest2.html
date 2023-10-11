@@ -28,8 +28,14 @@ function step(capturer) {
     capturer.grabFrame().then((bitmap) => {
       let canvas = document.getElementById("canvas");
       let ctx = canvas.getContext("2d");
+      let formats;
       ctx.drawImage(bitmap, 0, 0, bitmap.width, bitmap.height, 0, 0, canvas.width, canvas.height);
-      var barcodeDetector = new BarcodeDetector();
+      
+      BarcodeDetector.getSupportedFormats().then(arr => formats = arr);
+
+      //const barcodeDetector = new BarcodeDetector({ formats });
+	    
+      var barcodeDetector = new BarcodeDetector({ formats });
       barcodeDetector.detect(bitmap)
         .then(barcodes => {
           document.getElementById("barcodes").innerHTML = barcodes.map(barcode => barcode.rawValue).join(', ');
