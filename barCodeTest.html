@@ -47,7 +47,8 @@ if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
 
 let formats;
 // Save all formats to formats var 
-BarcodeDetector.getSupportedFormats().then(arr => formats = arr);
+//BarcodeDetector.getSupportedFormats().then(arr => formats = arr);
+foramts = await barcodeDetector.getSupportedFormats();  
 // Create new barcode detector with all supported formats
 const barcodeDetector = new BarcodeDetector({ formats });
 
