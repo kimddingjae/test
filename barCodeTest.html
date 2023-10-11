@@ -20,15 +20,16 @@
 <body>
 
 <video id="video" width="640" height="480" autoplay></video>
-<div id="output" hidden>
-  <div hidden><b>Data:</b> <span id="outputData"></span></div>
-</div>
+
+  <br>
+  <br>
+  <span id="test"></span>
 
 
 <script>
 
   const video = document.querySelector('video');
-  var outputData = document.getElementById("outputData");
+  const test = document.querySelector('span');
   
   const barcodeDetector = new BarcodeDetector({
     formats:['qr_code','ean_13','code_128']
@@ -52,11 +53,13 @@
    
    barcodeDetector.detect(canvas)
    .then(barcodes => {
+     
      if(barcodes.length === 0) {
+       test.innerText = "No Data";
        console.log('No barcode detected');
      } else{
        const barcode = barcodes[0];
-       alert(barcode)
+       test.innerText = "good";
        //outputData.innerText = ${barcode.rawValue};
        alert(`Type: ${barcode.format}, Data: ${barcode.rawValue}`);
      }
