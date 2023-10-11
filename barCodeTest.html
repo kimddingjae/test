@@ -37,7 +37,7 @@ const test2 = document.querySelector('#test2')
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
   // Use video without audio
   const constraints = { 
-    video: true,
+    video: { facingMode: "environment" },
     audio: false
   }
   
