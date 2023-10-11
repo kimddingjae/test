@@ -24,51 +24,50 @@
   <br>
   <br>
   <span id="test"></span>
+  <span id="test2"></span>
 
 
 <script>
 
-  const video = document.querySelector('video');
-  const test = document.querySelector('span');
+  // Get the video element
+const video = document.querySelector('#video');
+const test = document.querySelector('#test')
+const test2 = document.querySelector('#test2')
+// Check if device has camera
+if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+  // Use video without audio
+  const constraints = { 
+    video: true,
+    audio: false
+  }
   
-  const barcodeDetector = new BarcodeDetector({
-    formats:['qr_code','ean_13','code_128']
-    
-  });
-  
-  navigator.mediaDevices.getUserMedia({video:{ facingMode: "environment" }})
-  .then( stream =>{
-  video.srcObject = stream;
-  video.play();
-    })
-    .catch(err => alert(err));
-    
-   video.addEventListener('loadeddata', () =>{
-   
-   const canvas = document.createElement('canvas');
-   const width = video.videoWidth;
-   canvas.height = video.videoHeight;
-   const ctx = canvas.getContext('2d');
-   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-   
-   barcodeDetector.detect(canvas)
-   .then(barcodes => {
-     
-     if(barcodes.length === 0) {
-       test.innerText = "No Data";
-       console.log('No barcode detected');
-     } else{
-       const barcode = barcodes[0];
-       test.innerText = "good";
-       //outputData.innerText = ${barcode.rawValue};
-       alert(`Type: ${barcode.format}, Data: ${barcode.rawValue}`);
-     }
-   })
-   .catch(err => alert(err));
-   
-   
-   }); 
+  // Start video stream
+  navigator.mediaDevices.getUserMedia(constraints).then(stream => video.srcObject = stream);
+}
 
+let formats;
+// Save all formats to formats var 
+BarcodeDetector.getSupportedFormats().then(arr => formats = arr);
+// Create new barcode detector with all supported formats
+const barcodeDetector = new BarcodeDetector({ formats });
+
+// Detect code function 
+const detectCode = () => {
+  // Start detecting codes on to the video element
+  barcodeDetector.detect(video).then(codes => {
+    // If no codes exit function
+    if (codes.length === 0) return;
+        
+    for (const barcode of codes)  {
+    // Log the barcode to the console
+      test.innerText = barcode;
+    }
+  }).catch(err => {
+  // Log an error if one happens
+    test2.innerText = err;
+  })
+}
+setInterval(detectCode, 100);
 </script>
 
 </body>
